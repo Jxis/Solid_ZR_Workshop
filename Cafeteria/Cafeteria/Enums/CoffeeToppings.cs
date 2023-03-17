@@ -1,8 +1,8 @@
-﻿namespace Cafeteria.Domain
+﻿namespace Cafeteria.Enums
 {
     public enum CoffeeToppings
     {
-        Milk, 
+        Milk,
         Cinnamon,
         BrownSugar
     }

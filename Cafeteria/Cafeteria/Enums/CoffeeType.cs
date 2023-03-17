@@ -1,8 +1,8 @@
-﻿namespace Cafeteria.Domain
+﻿namespace Cafeteria.Enums
 {
     public enum CoffeeType
     {
-        Espresso, 
+        Espresso,
         LatteMacchiato,
         Cappuccino
     }

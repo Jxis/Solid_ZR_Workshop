@@ -1,4 +1,4 @@
-﻿namespace Cafeteria.Domain
+﻿namespace Cafeteria.Enums
 {
     public enum ServiceType
     {

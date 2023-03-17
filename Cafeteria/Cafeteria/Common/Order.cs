@@ -1,19 +1,20 @@
-﻿using Cafeteria.Interface;
+﻿using Cafeteria.Calculator;
+using Cafeteria.Enums;
+using Cafeteria.Interface;
 
 namespace Cafeteria.Domain
 {
     public class Order : IOrder
     {
         public double totalPrice { get; set; }
-
         public void OrderCoffee()
         {
             Coffee coffee = new Coffee();
 
             #region Type
-            bool first = false;          
-            while (first == false) 
-            {    
+            bool first = false;
+            while (first == false)
+            {
                 Console.WriteLine("Choose your coffee type:");
                 Console.WriteLine("1. Espresso");
                 Console.WriteLine("2. Cappuccino");
@@ -21,6 +22,7 @@ namespace Cafeteria.Domain
 
                 string AnswerForType = Console.ReadLine();
                 int AnswerType = int.Parse(AnswerForType);
+                
 
                 switch (AnswerType)
                 {
@@ -41,12 +43,13 @@ namespace Cafeteria.Domain
                         first = false;
                         break;
                 }
+
             }
             #endregion
 
             #region Size
             bool second = false;
-            while (second == false) 
+            while (second == false)
             {
                 Console.WriteLine("\nChoose your coffee size:");
                 Console.WriteLine("1. Regular");
@@ -70,6 +73,7 @@ namespace Cafeteria.Domain
                         break;
 
                 }
+
             }
             #endregion
 
@@ -105,9 +109,10 @@ namespace Cafeteria.Domain
                         over = false;
                         break;
                     default:
-                        Console.WriteLine("You didn't choose the correct number.Try again.");                   
+                        Console.WriteLine("You didn't choose the correct number.Try again.");
                         break;
                 }
+
             }
             #endregion
 
@@ -127,15 +132,15 @@ namespace Cafeteria.Domain
                 switch (AnswerService)
                 {
                     case 1:
-                        coffee.serviceType = ServiceType.InHouse;
+                        coffee.ServiceType = ServiceType.InHouse;
                         third = true;
                         break;
                     case 2:
-                        coffee.serviceType = ServiceType.CouponCode;
+                        coffee.ServiceType = ServiceType.CouponCode;
                         third = true;
                         break;
                     case 3:
-                        coffee.serviceType = ServiceType.TakeAway;
+                        coffee.ServiceType = ServiceType.TakeAway;
                         third = true;
                         break;
                     default:
@@ -143,12 +148,15 @@ namespace Cafeteria.Domain
                         break;
 
                 }
+
             }
             #endregion
 
             Console.WriteLine("\n\n");
+        
             Receipt receipt = new Receipt();
             receipt.PrintReceipt(coffee);
         }
+        
     }
 }
