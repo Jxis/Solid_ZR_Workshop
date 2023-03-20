@@ -1,6 +1,6 @@
 ﻿namespace WeatherApplication.Strategy
 {
-    public class SortByCityName : SortStrategy
+    public class SortByCity : SortStrategy
     {
         public override void Sort(List<Weather.Common.Weather> list)
         {

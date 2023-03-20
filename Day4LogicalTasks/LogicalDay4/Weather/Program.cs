@@ -29,8 +29,11 @@ public class Program
         Console.WriteLine("Sorting by Temperature:");
         weatherList.SetSortStrategy(new SortByTemperatureAscending());
         weatherList.Sort();
-        Console.WriteLine("\nSorting by City name: ");
-        weatherList.SetSortStrategy(new SortByCityName());
+        Console.WriteLine("\nSorting by City:");
+        weatherList.SetSortStrategy(new SortByCity());
+        weatherList.Sort();
+        Console.WriteLine("\nSorting by Country:");
+        weatherList.SetSortStrategy(new SortByCountry());
         weatherList.Sort();
 
     }
