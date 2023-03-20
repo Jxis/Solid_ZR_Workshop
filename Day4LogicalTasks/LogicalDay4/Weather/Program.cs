@@ -35,6 +35,9 @@ public class Program
         Console.WriteLine("\nSorting by Country:");
         weatherList.SetSortStrategy(new SortByCountry());
         weatherList.Sort();
+        Console.WriteLine("\nSorting by Wind Speed:");
+        weatherList.SetSortStrategy(new SortByWindSpeed());
+        weatherList.Sort();
 
     }
 
