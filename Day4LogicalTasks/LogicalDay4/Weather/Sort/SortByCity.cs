@@ -20,10 +20,14 @@
                     //Ako su jednaki vraca 0
                     if (string.Compare(list[i - 1].City, list[i].City) > 0)
                     {
-                        Weather.Common.Weather temp = list[i - 1];
-                        list[i - 1] = list[i];
-                        list[i] = temp;
+                        //Weather.Common.Weather temp = list[i - 1];
+                        //list[i - 1] = list[i];
+                        //list[i] = temp;
+
+                        (list[i], list[i - 1]) = (list[i - 1], list[i]);
                         swapped = true;
+
+
                     }
                 }
                 n--;
