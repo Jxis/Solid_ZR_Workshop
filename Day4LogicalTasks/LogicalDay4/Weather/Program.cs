@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Weather.Common;
 using WeatherApplication.Common;
+using WeatherApplication.Filtering;
 using WeatherApplication.SearchStrategy;
 using WeatherApplication.Sort;
 using WeatherApplication.Strategy;
@@ -45,25 +46,95 @@ public class Program
 
         #region Search
         // For binary search we need to first sort the list by zip code
-        List<Weather.Common.Weather> sortedByZipCode = new List<Weather.Common.Weather>();
-        weatherList.SetSortStrategy(new SortByZipCode());
-        sortedByZipCode = weatherList.Sort();
+        //List<Weather.Common.Weather> sortedByZipCode = new List<Weather.Common.Weather>();
+        //weatherList.SetSortStrategy(new SortByZipCode());
+        //sortedByZipCode = weatherList.Sort();
 
-        Console.WriteLine("Type the zip code:");
-        string answer = Console.ReadLine();
+        //Console.WriteLine("Type the zip code:");
+        //string answer = Console.ReadLine();
 
-        SearchedList searchedList = new SearchedList();
-        
-        foreach(var item in sortedByZipCode)
-        {
-            searchedList.Add(item);
-        }
-        searchedList.AddSearcedWord(answer);
+        //SearchedList searchedList = new SearchedList();
 
-        searchedList.SetSearchStrategy(new SearchByZipCode());
-        searchedList.Search();
+        //foreach(var item in sortedByZipCode)
+        //{
+        //    searchedList.Add(item);
+        //}
+        //searchedList.AddSearcedWord(answer);
+
+        //searchedList.SetSearchStrategy(new SearchByZipCode());
+        //searchedList.Search();
 
         #endregion
+
+        #region Filter Temperature
+        //Console.WriteLine("Choose temperature:");
+        //string answerForTemperature = Console.ReadLine();
+        //Console.WriteLine("Choose filter:");
+        //Console.WriteLine("1.Exact equal");
+        //Console.WriteLine("2.Greater than");
+        //Console.WriteLine("3.Less than ");
+        //string answerForFilter = Console.ReadLine();
+        
+        //int answerForFilterInt = int.Parse(answerForFilter);
+
+        FilteredList filteredList = new FilteredList();
+        foreach (var item in weather)
+        {
+            filteredList.Add(item);
+        }
+        //filteredList.AddFilterWord(answerForTemperature);
+
+        //switch (answerForFilterInt)
+        //{
+        //    case 1:
+        //        filteredList.SetFilterStrategy(new FilterByExactEqual());
+        //        filteredList.Filter();
+        //        break;
+        //    case 2:
+        //        filteredList.SetFilterStrategy(new FilterByGreaterThan());
+        //        filteredList.Filter();
+        //        break;
+        //    case 3:
+        //        filteredList.SetFilterStrategy(new FilterByLessThan());
+        //        filteredList.Filter();
+        //        break;
+        //    default:
+        //        Console.WriteLine("You didn't choose the correct number.");
+        //        break;
+        //}
+
+        #endregion
+
+        #region Filter Countrt
+        Console.WriteLine("Choose country:");
+        string answerForCountry = Console.ReadLine();
+        Console.WriteLine("Choose filter:");
+        Console.WriteLine("1.Exact name");
+        Console.WriteLine("2.Starts with");
+        string answerForFilterCountry = Console.ReadLine();
+
+        int answerForFilterCountryInt = int.Parse(answerForFilterCountry);
+
+        filteredList.AddFilterWord(answerForCountry);
+
+        switch (answerForFilterCountryInt)
+        {
+            case 1:
+                filteredList.SetFilterStrategy(new FilterByExactName());
+                filteredList.Filter();
+                break;
+            case 2:
+                filteredList.SetFilterStrategy(new FilterByStartsWith());
+                filteredList.Filter();
+                break;
+            
+            default:
+                Console.WriteLine("You didn't choose the correct number.");
+                break;
+        }
+
+        #endregion
+
 
     }
 
