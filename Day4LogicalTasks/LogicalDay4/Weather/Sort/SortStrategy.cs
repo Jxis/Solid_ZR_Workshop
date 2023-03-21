@@ -2,7 +2,7 @@
 {
     public abstract class SortStrategy 
     {
-        public abstract void Sort(List<Weather.Common.Weather> list);
+        public abstract List<Weather.Common.Weather> Sort(List<Weather.Common.Weather> list);
 
     }
 }

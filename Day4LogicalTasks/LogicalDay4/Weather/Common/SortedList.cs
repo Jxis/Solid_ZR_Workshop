@@ -17,9 +17,11 @@ namespace Weather.Common
             list.Add(weather);
         }
 
-        public void Sort()
+        public List<Weather> Sort()
         {
-            sortStrategy.Sort(list);
+            List<Weather> sortedList = new List<Weather>();
+            sortedList = sortStrategy.Sort(list);
+            return sortedList;
 
         }
     }

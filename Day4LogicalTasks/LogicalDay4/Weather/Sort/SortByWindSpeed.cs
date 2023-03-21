@@ -10,11 +10,13 @@ namespace WeatherApplication.Strategy
     public class SortByWindSpeed : SortStrategy
     {
         // QUICK SORT
-        public override void Sort(List<Weather.Common.Weather> list)
+        public override List<Weather.Common.Weather> Sort(List<Weather.Common.Weather> list)
         {
             QuickSort(list, 0, list.Count - 1);
             foreach (var item in list)
                 Console.WriteLine(item.GetPrintableString());
+
+            return list;
         }
 
         public void QuickSort(List<Weather.Common.Weather> list, int left, int right)

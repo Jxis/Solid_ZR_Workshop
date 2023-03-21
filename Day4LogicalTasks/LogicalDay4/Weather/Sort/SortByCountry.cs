@@ -5,11 +5,13 @@ namespace WeatherApplication.Strategy
     public class SortByCountry : SortStrategy
     {
         //MERGE SORT
-        public override void Sort(List<Weather.Common.Weather> list)
+        public override List<Weather.Common.Weather> Sort(List<Weather.Common.Weather> list)
         {
             MergeSortByCountry(list, 0, list.Count - 1);
             foreach (var item in list)
                 Console.WriteLine(item.GetPrintableString());
+
+            return list;
         }
 
         public void MergeSortByCountry(List<Weather.Common.Weather> list, int left, int right)
