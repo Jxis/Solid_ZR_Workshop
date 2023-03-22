@@ -12,11 +12,11 @@ namespace WeatherApplication.Pagination
         public Pagination(List<Weather.Common.Weather> weather)
         {
 
-            Console.WriteLine("Choose how many pages you want:");
+            Console.WriteLine("Choose how many weather per page do you want:");
             string answerForPages = Console.ReadLine();
             int answerForPagesInt = int.Parse(answerForPages);
-            //if (answerForPagesInt > 0 && answerForPagesInt > weather.Count())
-            //{
+            if (answerForPagesInt > 0 && answerForPagesInt <= weather.Count())
+            {
                 WeatherPagination pagination = new WeatherPagination(weather, answerForPagesInt);
                 Console.WriteLine("Current page content:");
                 List<Weather.Common.Weather> currectWeather = pagination.GetCurrentPage();
@@ -67,7 +67,7 @@ namespace WeatherApplication.Pagination
                         default:
                             break;
                     }
-                //}
+                }
 
 
             }
