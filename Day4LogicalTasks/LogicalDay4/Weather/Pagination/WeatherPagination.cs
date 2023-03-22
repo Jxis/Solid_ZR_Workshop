@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherApplication.Interface;
 
 namespace WeatherApplication.Pagination
 {
-    public class WeatherPagination
+    public class WeatherPagination : IPagination
     {
         public readonly List<Weather.Common.Weather> weatherList = new List<Weather.Common.Weather>();
         private readonly int pageSize;
@@ -42,8 +43,7 @@ namespace WeatherApplication.Pagination
                 Console.WriteLine("There is no next page. This is the last page.");
                 return 1; // neuspesno 
             }
-
-                
+              
         }
 
         public int PreviousPage()

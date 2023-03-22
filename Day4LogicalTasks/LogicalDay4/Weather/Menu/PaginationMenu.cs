@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Weather.Common;
+﻿using WeatherApplication.Pagination;
 
-namespace WeatherApplication.Pagination
+namespace WeatherApplication.Menu
 {
-    public class Pagination
+    public class PaginationMenu
     {
-        public Pagination(List<Weather.Common.Weather> weather)
+        public PaginationMenu(List<Weather.Common.Weather> weather)
         {
 
             Console.WriteLine("Choose how many weather per page do you want:");
@@ -68,7 +63,6 @@ namespace WeatherApplication.Pagination
                             break;
                     }
                 }
-
 
             }
         }

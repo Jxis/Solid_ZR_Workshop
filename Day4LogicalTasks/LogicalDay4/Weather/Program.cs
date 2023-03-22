@@ -2,7 +2,7 @@
 using Weather.Common;
 using WeatherApplication.Common;
 using WeatherApplication.Filtering;
-using WeatherApplication.Pagination;
+using WeatherApplication.Menu;
 
 public class Program
 {
@@ -118,17 +118,17 @@ public class Program
                             case 1:
                                 filteredList.SetFilterStrategy(new FilterByExactEqual());
                                 List<Weather.Common.Weather> newList = filteredList.Filter();
-                                Pagination paginationForTemperature = new Pagination(newList);
+                                PaginationMenu paginationForTemperature = new PaginationMenu(newList);
                                 break;
                             case 2:
                                 filteredList.SetFilterStrategy(new FilterByGreaterThan());
                                 List<Weather.Common.Weather> newList1 = filteredList.Filter();
-                                Pagination paginationForTemperature2 = new Pagination(newList1);
+                                PaginationMenu paginationForTemperature2 = new PaginationMenu(newList1);
                                 break;
                             case 3:
                                 filteredList.SetFilterStrategy(new FilterByLessThan());
                                 List<Weather.Common.Weather> newList2 = filteredList.Filter();
-                                Pagination paginationForTemperature4 = new Pagination(newList2);
+                                PaginationMenu paginationForTemperature4 = new PaginationMenu(newList2);
                                 break;
                             default:
                                 Console.WriteLine("You didn't choose the correct number.");
@@ -155,12 +155,12 @@ public class Program
                             case 1:
                                 filteredList.SetFilterStrategy(new FilterByExactName());
                                 List<Weather.Common.Weather>  List9 = filteredList.Filter();
-                                Pagination paginationForCountry1 = new Pagination(List9);
+                                PaginationMenu paginationForCountry1 = new PaginationMenu(List9);
                                 break;
                             case 2:
                                 filteredList.SetFilterStrategy(new FilterByStartsWith());
                                 List<Weather.Common.Weather> list10 = filteredList.Filter();
-                                Pagination paginationForCountry2 = new Pagination(list10);
+                                PaginationMenu paginationForCountry2 = new PaginationMenu(list10);
                                 break;
 
                             default:
@@ -176,7 +176,7 @@ public class Program
 
                 break;
             case 2:
-                Pagination pagination = new Pagination(weather);
+                PaginationMenu pagination = new PaginationMenu(weather);
                 break;
             default:
                 break;
