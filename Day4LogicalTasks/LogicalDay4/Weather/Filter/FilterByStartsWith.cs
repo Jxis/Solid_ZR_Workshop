@@ -22,7 +22,9 @@
                     returnList.Add(item);
                     Console.WriteLine(item.GetPrintableString());
                 }
+
             }
+
 
             return returnList;
         }

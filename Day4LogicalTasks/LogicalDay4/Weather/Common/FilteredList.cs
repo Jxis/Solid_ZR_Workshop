@@ -10,7 +10,7 @@ namespace WeatherApplication.Common
 {
     public class FilteredList
     {
-        private List<Weather.Common.Weather> list = new List<Weather.Common.Weather>();
+        public List<Weather.Common.Weather> list = new List<Weather.Common.Weather>();
         private FilterStrategy filterStrategy;
         private string filterBy;
 
