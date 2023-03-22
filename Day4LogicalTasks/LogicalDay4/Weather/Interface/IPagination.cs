@@ -8,7 +8,7 @@ namespace WeatherApplication.Interface
 {
     public interface IPagination
     {
-        public List<Weather.Common.Weather> GetCurrentPage(); // isto kao Execute
+        void Execute();
 
     }
 }

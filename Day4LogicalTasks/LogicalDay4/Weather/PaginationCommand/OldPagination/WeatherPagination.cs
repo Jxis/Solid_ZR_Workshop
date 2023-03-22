@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApplication.Interface;
 
-namespace WeatherApplication.Pagination
+namespace WeatherApplication.PaginationCommand.OldPagination
 {
-    public class WeatherPagination : IPagination
+    public class WeatherPagination
     {
         public readonly List<Weather.Common.Weather> weatherList = new List<Weather.Common.Weather>();
         private readonly int pageSize;
@@ -17,7 +17,7 @@ namespace WeatherApplication.Pagination
         {
             weatherList = items;
             this.pageSize = pageSize;
-            this.currentPage = 1;
+            currentPage = 1;
         }
 
         public List<Weather.Common.Weather> GetCurrentPage()
@@ -28,22 +28,24 @@ namespace WeatherApplication.Pagination
             List<Weather.Common.Weather> currentWeatherOnPage = weatherList.GetRange(startIndex, endIndex - startIndex);
 
             foreach (var item in currentWeatherOnPage)
-                Console.WriteLine(item.GetPrintableString()); 
+                Console.WriteLine(item.GetPrintableString());
 
             return currentWeatherOnPage;
         }
 
         public int NextPage()
         {
-            if (currentPage < GetTotalPages()) {
+            if (currentPage < GetTotalPages())
+            {
                 currentPage++;
                 return 0; // uspesno
-            } else
+            }
+            else
             {
                 Console.WriteLine("There is no next page. This is the last page.");
                 return 1; // neuspesno 
             }
-              
+
         }
 
         public int PreviousPage()
@@ -53,16 +55,17 @@ namespace WeatherApplication.Pagination
                 currentPage--;
                 return 0; // uspesno
             }
-            else {
+            else
+            {
                 Console.WriteLine("This is the first page. There is no previous page.");
                 return 1; // neuspesno
             }
         }
 
         public int GetTotalPages()
-        { 
+        {
             return (int)Math.Ceiling((double)weatherList.Count / pageSize);
         }
-        
+
     }
 }
